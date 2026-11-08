@@ -13,6 +13,6 @@ A Python bot that gets daily prayer times from [islom.uz](https://islom.uz) and 
 
 python scraper_bot.py
 
-The daily 20:00 run is scheduled with Task Scheduler (Windows) or cron (Linux).
+The daily 00:00 run is scheduled with Task Scheduler (Windows) or cron (Linux).
 
 Source: islom.uz
