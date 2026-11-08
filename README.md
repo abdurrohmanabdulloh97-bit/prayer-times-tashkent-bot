@@ -1,6 +1,6 @@
  # Prayer times in Tashkent telegram bot
 
-A Python bot that gets daily prayer times from [islom.uz](https://islom.uz) and posts them to a Telegram channel every day at 20:00.
+A Python bot that gets daily prayer times from [islom.uz](https://islom.uz) and posts them to a Telegram channel every day at 00:00.
 
 ## Setup
 
