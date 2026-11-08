@@ -25,11 +25,18 @@ NAMOZLAR = {
 
 def get_page_text():
     with sync_playwright() as p:
-        browser=p.chromium.launch(headless=True)
-        page=browser.new_page()
-        page.goto(URL, wait_until="networkidle", timeout=60_000)
-        page.wait_for_timeout(3_000)
-        text=page.inner_text("body")
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto(URL, wait_until="domcontentloaded", timeout=90000)
+        try:
+            # Namoz nomlari yonida soat paydo bo'lguncha kutish
+            page.wait_for_function(
+                r"/(Бомдод|Хуфтон)[^\d]{0,40}\d{1,2}:\d{2}/.test(document.body.innerText)",
+                timeout=60000,
+            )
+        except Exception:
+            page.wait_for_timeout(5000)
+        text = page.inner_text("body")
         browser.close()
     return text
 
